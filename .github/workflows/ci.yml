@@ -1,0 +1,19 @@
+name: CI Base Testing
+
+on: pull_request
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install npm dependencies
+        run: |
+          npm install
+      - name: Verify coding style
+        run: |
+          npm run lint
+      - name: Run tests
+        run: |
+          npm test
