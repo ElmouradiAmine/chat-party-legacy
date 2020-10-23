@@ -4,7 +4,7 @@ import logo from '../../assets/img/logo.png';
 
 import './Logo.css';
 
-interface Props {
+export interface Props {
   className?: string;
 }
 const Logo: React.FC<Props> = ({ className = '' }) => (
