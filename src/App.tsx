@@ -1,10 +1,11 @@
 import React from 'react';
+import Header from './layout/Header/Header';
+
 import './App.css';
-import Logo from './components/Logo/Logo';
 
 const App : React.FC = () => (
-  <div className="App">
-    <Logo />
+  <div className="app">
+    <Header className="app__header" />
   </div>
 );
 

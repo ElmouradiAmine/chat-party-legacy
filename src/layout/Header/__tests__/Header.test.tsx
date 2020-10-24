@@ -1,27 +1,25 @@
-/* eslint-disable import/no-unresolved */
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 
-import Logo, { Props } from '../Logo';
+import Header, { Props } from '../Header';
 
 afterEach(cleanup);
-describe('Logo component', () => {
-  const { className }:Props = {
+describe('Header component', () => {
+  const { className }: Props = {
     className: 'className',
   };
   test('renders correctly', () => {
-    render(<Logo />);
+    render(<Header />);
   });
 
   test('renders correctly with props', () => {
-    const { container } = render(<Logo className={className} />);
-    expect(container).not.toBeNull();
+    const { container } = render(<Header className={className} />);
     expect(container.firstElementChild?.classList).toContain(className);
   });
 
   test('matches snapshot', () => {
-    const tree = renderer.create(<Logo className={className} />);
+    const tree = renderer.create(<Header className={className} />);
     expect(tree).toMatchSnapshot();
   });
 });
