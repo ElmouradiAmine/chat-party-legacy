@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer layout matches snapshot 1`] = `
+<footer
+  className="footer className"
+>
+  <div
+    className="footer__copyright"
+  >
+    © 2020 Chat Party, Inc.
+  </div>
+</footer>
+`;
