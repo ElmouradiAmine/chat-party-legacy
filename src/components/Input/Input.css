@@ -1,0 +1,16 @@
+.input {
+  background-color: var(--color-secondary);
+  border-radius: 3px;
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  padding: 1rem 1.8rem;
+  opacity: 0.7;
+  color: var(--color-font-primary);
+  min-width: 0px;
+}
+
+.input:focus {
+  outline: none;
+  /* border: 1px solid rgba(255,255,255,0.4); */
+}
