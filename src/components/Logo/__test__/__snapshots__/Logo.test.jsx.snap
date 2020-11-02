@@ -3,6 +3,7 @@
 exports[`Logo component matches snapshot 1`] = `
 <figure
   className="logo className"
+  data-testid="logo"
 >
   <img
     alt="logo chat-pary linux penguin"

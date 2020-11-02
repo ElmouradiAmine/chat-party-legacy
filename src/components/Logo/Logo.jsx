@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png';
 import './Logo.css';
 
 const Logo = ({ className }) => (
-  <figure className={`logo ${className}`}>
+  <figure className={`logo ${className}`} data-testid="logo">
     <img
       src={logo}
       alt="logo chat-pary linux penguin"
