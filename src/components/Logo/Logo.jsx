@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import logo from '../../assets/logo.png';
+import logo from '../../assets/img/logo.png';
 import './Logo.css';
 
 const Logo = ({ className }) => (
