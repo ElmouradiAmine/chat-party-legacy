@@ -1,0 +1,10 @@
+.connection-form {
+  background-color: var(--color-primary);
+  border: var(--border-primary);
+  border-radius: 3px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 2.4rem;
+}

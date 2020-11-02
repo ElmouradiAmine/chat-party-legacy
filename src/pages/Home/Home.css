@@ -1,3 +1,14 @@
 .home {
   flex: 1;
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(0, 1fr) [content-start] minmax(300px, 400px)
+    [content-end] minmax(0, 1fr) [full-end];
+  grid-template-rows: 1fr minmax(0, 400px) 1fr;
+  column-gap: 1.6rem;
+}
+
+.home__connection-form {
+  grid-column: content-start/content-end;
+  grid-row: 2/3;
 }
