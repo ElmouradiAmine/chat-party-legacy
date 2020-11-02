@@ -1,4 +1,32 @@
 :root {
+  /* Colors */
+  --color-background: #23272a;
+  --color-primary: #2c2f33;
+  --color-secondary: #40444b;
+
+  --color-red: #ff605c;
+  --color-green: #00ca4e;
+  --color-yellow: #ffbd44;
+  --color-pink: #ec49a6;
+  --color-blue: #2196f3;
+
+  --color-bubble-me: #0078d7;
+  --color-bubble: #23272a;
+
+  --color-border-primary: rgba(129, 131, 132, 0.15);
+
+  --color-font-primary: white;
+  --color-font-bubble-me: white;
+
+  --color-card-background: #40444a;
+
+  /* Borders */
+  --border-primary: 1px solid var(--color-border-primary);
+
+  /* Grid gutters */
+  --grid-gutter-row: 3.2rem;
+  --grid-gutter-column: 1.6rem;
+
   /* Font */
   --color-font-primary: white;
 }

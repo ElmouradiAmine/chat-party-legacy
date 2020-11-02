@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Logo from './components/Logo/Logo';
+import Header from './layout/Header/Header';
 
 function App() {
   return (
     <div className="app">
-      <Logo />
+      <Header />
     </div>
   );
 }

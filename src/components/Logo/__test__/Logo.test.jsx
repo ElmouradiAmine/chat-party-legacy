@@ -6,8 +6,8 @@ import Logo from '../Logo';
 
 afterEach(cleanup);
 describe('Logo component', () => {
-  const  className = 'className';
-  
+  const className = 'className';
+
   test('renders correctly', () => {
     render(<Logo />);
   });
