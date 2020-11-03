@@ -7,16 +7,14 @@ import Input from '../Input';
 
 beforeEach(cleanup);
 describe('Input component', () => {
-  let value = '';
   const {
-    className, type, placeholder, onChange,
+    className, type, placeholder, onChange, value,
   } = {
     className: 'className',
     type: 'text',
     placeholder: 'placeholder',
-    onChange: jest.fn((e) => {
-      value = e.target.value;
-    }),
+    value: 'value',
+    onChange: jest.fn(),
   };
 
   test('renders correctly', () => {
@@ -60,7 +58,15 @@ describe('Input component', () => {
   });
 
   test('matches snapshot', () => {
-    const tree = renderer.create(<Input className={className} />);
+    const tree = renderer.create(
+      <Input
+        className={className}
+        type={type}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+      />,
+    );
     expect(tree).toMatchSnapshot();
   });
 });
