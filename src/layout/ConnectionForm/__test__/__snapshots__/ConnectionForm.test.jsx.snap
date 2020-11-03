@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectionForm component matches snapshot 1`] = `
+<form
+  className="connection-form className"
+>
+  <input
+    className="input connection-form__username"
+    onChange={[Function]}
+    placeholder="Username"
+    type="text"
+    value=""
+  />
+</form>
+`;
