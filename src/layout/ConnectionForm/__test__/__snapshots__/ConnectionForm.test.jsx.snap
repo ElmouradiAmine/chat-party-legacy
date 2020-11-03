@@ -71,5 +71,17 @@ exports[`ConnectionForm component matches snapshot 1`] = `
   >
     join
   </button>
+  <p
+    className="connection-form__error"
+    style={
+      Object {
+        "visibility": "hidden",
+      }
+    }
+  >
+    ⚠
+     
+    
+  </p>
 </form>
 `;
