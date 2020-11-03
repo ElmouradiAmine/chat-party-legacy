@@ -32,6 +32,16 @@ exports[`Header layout matches snapshot 1`] = `
         </sub>
       </h1>
     </figure>
+    <div
+      className="user-count "
+    >
+      <div
+        className="circle"
+      />
+      5
+       
+      online.
+    </div>
   </div>
 </header>
 `;
