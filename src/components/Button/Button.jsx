@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './Button.css';
+import Spinner from '../Spinner/Spinner';
 
 function Button({
   className, label, color, onClick, disabled,
@@ -14,7 +15,7 @@ function Button({
       onClick={onClick}
       disabled={disabled}
     >
-      {label}
+      {!disabled ? `${label}` : <Spinner /> }
     </button>
   );
 }

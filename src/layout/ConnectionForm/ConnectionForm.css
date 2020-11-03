@@ -21,3 +21,11 @@
 .connection-form__gender-selection > *:not(:last-child) {
   margin-right: 3.2rem;
 }
+
+.connection-form__error {
+  margin: 0.8rem;
+  color: var(--color-red);
+  opacity: 0.9;
+  font-size: 1.2rem;
+  text-align: center;
+}

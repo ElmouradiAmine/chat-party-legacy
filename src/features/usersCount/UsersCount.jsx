@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { userCountSelector } from './usersCountSlice';
+import { usersCountSelector } from './usersCountSlice';
 import './UsersCount.css';
 
 const UsersCount = ({ className }) => {
-  const count = useSelector(userCountSelector);
+  const count = useSelector(usersCountSelector);
   return (
     <div className={`user-count ${className}`}>
       <div className="circle" />

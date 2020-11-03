@@ -15,6 +15,6 @@ const usersCountSlice = createSlice({
   },
 });
 
-export const userCountSelector = (state) => state.usersCount.value;
+export const usersCountSelector = (state) => state.usersCount.value;
 export const { getCount } = usersCountSlice.actions;
 export default usersCountSlice.reducer;

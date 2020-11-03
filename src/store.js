@@ -3,13 +3,15 @@ import createSocketIoMiddleware from 'redux-socket.io';
 import io from 'socket.io-client';
 
 import usersCountReducer from './features/usersCount/usersCountSlice';
+import userReducer from './features/user/userSlice';
 
-const socket = io('http://localhost:5000');
+const socket = io('http://localhost:5050');
 const socketIoMiddleware = createSocketIoMiddleware(socket, 'server/');
 
 const store = configureStore({
   reducer: {
     usersCount: usersCountReducer,
+    user: userReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(socketIoMiddleware),
   devTools: process.env.NODE_ENV !== 'production',
