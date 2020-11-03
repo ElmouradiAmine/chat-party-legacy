@@ -3,6 +3,7 @@
 exports[`ConnectionForm component matches snapshot 1`] = `
 <form
   className="connection-form className"
+  onSubmit={[Function]}
 >
   <input
     className="input connection-form__username"
@@ -61,5 +62,14 @@ exports[`ConnectionForm component matches snapshot 1`] = `
       </p>
     </div>
   </div>
+  <button
+    aria-label="join"
+    className="button button--green "
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    join
+  </button>
 </form>
 `;
