@@ -8,12 +8,14 @@ import Input from '../Input';
 beforeEach(cleanup);
 describe('Input component', () => {
   const {
-    className, type, placeholder, onChange, value,
+    className, type, placeholder, onChange, value, max, maxLength,
   } = {
     className: 'className',
     type: 'text',
     placeholder: 'placeholder',
     value: 'value',
+    max: '12',
+    maxLength: '12',
     onChange: jest.fn(),
   };
 
@@ -29,6 +31,8 @@ describe('Input component', () => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        max={max}
+        maxLength={maxLength}
       />,
     );
     expect(container).not.toBeNull();
@@ -47,6 +51,8 @@ describe('Input component', () => {
         type={type}
         placeholder={placeholder}
         onChange={onChange}
+        max={max}
+        maxLength={maxLength}
       />,
     );
     const input = getByPlaceholderText(placeholder);
@@ -65,6 +71,8 @@ describe('Input component', () => {
         placeholder={placeholder}
         onChange={onChange}
         value={value}
+        max={max}
+        maxLength={maxLength}
       />,
     );
     expect(tree).toMatchSnapshot();

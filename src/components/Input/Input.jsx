@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Input.css';
 
 const Input = ({
-  type, className, placeholder, onChange, value,
+  type, className, placeholder, onChange, value, max, maxLength,
 }) => (
   <input
     type={type}
@@ -12,6 +12,8 @@ const Input = ({
     className={`input ${className}`}
     onChange={onChange}
     value={value}
+    max={max}
+    maxLength={maxLength}
   />
 );
 
@@ -21,6 +23,9 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  max: PropTypes.string,
+  maxLength: PropTypes.string,
+
 };
 
 Input.defaultProps = {
@@ -29,5 +34,7 @@ Input.defaultProps = {
   placeholder: '',
   value: undefined,
   onChange: null,
+  max: undefined,
+  maxLength: undefined,
 };
 export default Input;
