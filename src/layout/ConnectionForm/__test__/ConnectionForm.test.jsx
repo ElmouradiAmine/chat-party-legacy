@@ -26,6 +26,23 @@ describe('ConnectionForm component', () => {
     expect(input).toHaveValue('test');
   });
 
+  test('should control the gender cards component value', () => {
+    const { getByTestId } = render(<ConnectionForm className={className} />);
+    const genderCardMale = getByTestId('card-male');
+    const genderCardFemale = getByTestId('card-female');
+
+    expect(genderCardMale.classList).not.toContain('card--selected');
+    expect(genderCardFemale.classList).not.toContain('card--selected');
+
+    userEvent.click(genderCardMale);
+    expect(genderCardMale.classList).toContain('card--selected');
+    expect(genderCardFemale.classList).not.toContain('card--selected');
+
+    userEvent.click(genderCardFemale);
+    expect(genderCardMale.classList).not.toContain('card--selected');
+    expect(genderCardFemale.classList).toContain('card--selected');
+  });
+
   test('matches snapshot', () => {
     const tree = renderer.create(<ConnectionForm className={className} />);
     expect(tree).toMatchSnapshot();
