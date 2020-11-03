@@ -5,7 +5,6 @@ import './Footer.css';
 
 const Footer = ({ className }) => (
   <footer className={`footer ${className}`}>
-    {/* copyright */}
     <div className="footer__copyright">
       © 2020 Chat Party, Inc.
     </div>

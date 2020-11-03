@@ -8,3 +8,16 @@
 
   padding: 2.4rem;
 }
+.connection-form__username {
+  margin-bottom: 3.2rem;
+}
+.connection-form__gender-selection {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  margin-bottom: 3.2rem;
+}
+
+.connection-form__gender-selection > *:not(:last-child) {
+  margin-right: 3.2rem;
+}

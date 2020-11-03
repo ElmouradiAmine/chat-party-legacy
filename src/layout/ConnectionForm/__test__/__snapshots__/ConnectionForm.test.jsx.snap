@@ -11,5 +11,51 @@ exports[`ConnectionForm component matches snapshot 1`] = `
     type="text"
     value=""
   />
+  <div
+    className="connection-form__gender-selection"
+  >
+    <div
+      aria-checked={false}
+      className="card  card--blue false "
+      data-testid="card-male"
+      id="card-male"
+      role="radio"
+      tabIndex={0}
+    >
+      <svg
+        className="card__icon"
+        data-testid="icon"
+        fill={null}
+      >
+        gender-male-outline.svg
+      </svg>
+      <p
+        className="card__label"
+      >
+        male
+      </p>
+    </div>
+    <div
+      aria-checked={false}
+      className="card  card--pink false "
+      data-testid="card-female"
+      id="card-female"
+      role="radio"
+      tabIndex={0}
+    >
+      <svg
+        className="card__icon"
+        data-testid="icon"
+        fill={null}
+      >
+        gender-female-outline.svg
+      </svg>
+      <p
+        className="card__label"
+      >
+        female
+      </p>
+    </div>
+  </div>
 </form>
 `;
