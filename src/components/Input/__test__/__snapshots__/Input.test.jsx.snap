@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component matches snapshot 1`] = `
+<input
+  className="input className"
+  onChange={null}
+  placeholder=""
+  type="text"
+/>
+`;

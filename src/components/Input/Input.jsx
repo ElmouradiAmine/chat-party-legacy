@@ -27,7 +27,7 @@ Input.defaultProps = {
   className: '',
   type: 'text',
   placeholder: '',
-  value: '',
+  value: undefined,
   onChange: null,
 };
 export default Input;
