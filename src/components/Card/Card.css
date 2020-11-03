@@ -40,3 +40,6 @@
 .card--pink.card--selected {
   background: var(--color-pink);
 }
+.card:active {
+  outline: none;
+}

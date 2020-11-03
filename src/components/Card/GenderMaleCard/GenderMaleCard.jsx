@@ -4,30 +4,34 @@ import PropTypes from 'prop-types';
 import GenderMaleOutlineIcon from '../../Icons/GenderMaleOutlineIcon/GenderMaleOutlineIcon';
 import Card from '../Card';
 
-function GenderMaleCard({ selected, onClick, onKeyPress }) {
+function GenderMaleCard({ onClick, currentGender }) {
+  const label = 'male';
   return (
     <Card
       id="card-male"
       Icon={GenderMaleOutlineIcon}
-      label="male"
+      label={label}
       color="blue"
-      selected={selected}
-      onClick={onClick}
-      onKeyPress={onKeyPress}
+      selected={currentGender === label}
+      onClick={() => onClick(label)}
+      onKeyPress={(e) => {
+        if (e.key === 'Enter') {
+          onClick(label);
+        }
+      }}
     />
   );
 }
 
 GenderMaleCard.propTypes = {
-  selected: PropTypes.bool,
   onClick: PropTypes.func,
-  onKeyPress: PropTypes.func,
+  currentGender: PropTypes.string,
 };
 
 GenderMaleCard.defaultProps = {
-  selected: false,
   onClick: undefined,
-  onKeyPress: undefined,
+  currentGender: '',
+
 };
 
 export default GenderMaleCard;

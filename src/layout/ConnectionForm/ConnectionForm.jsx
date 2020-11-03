@@ -8,9 +8,14 @@ import GenderFemaleCard from '../../components/Card/GenderFemaleCard/GenderFemal
 
 const ConnectionForm = ({ className }) => {
   const [username, setUsername] = useState('');
+  const [gender, setGender] = useState(undefined);
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
+  };
+
+  const handleGenderCardClick = (g) => {
+    setGender(g);
   };
 
   return (
@@ -23,8 +28,8 @@ const ConnectionForm = ({ className }) => {
         placeholder="Username"
       />
       <div className="connection-form__gender-selection">
-        <GenderMaleCard />
-        <GenderFemaleCard />
+        <GenderMaleCard currentGender={gender} onClick={handleGenderCardClick} />
+        <GenderFemaleCard currentGender={gender} onClick={handleGenderCardClick} />
       </div>
     </form>
   );

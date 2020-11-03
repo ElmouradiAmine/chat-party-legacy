@@ -19,6 +19,7 @@ exports[`ConnectionForm component matches snapshot 1`] = `
       className="card  card--blue false "
       data-testid="card-male"
       id="card-male"
+      onClick={[Function]}
       role="radio"
       tabIndex={0}
     >
@@ -40,6 +41,7 @@ exports[`ConnectionForm component matches snapshot 1`] = `
       className="card  card--pink false "
       data-testid="card-female"
       id="card-female"
+      onClick={[Function]}
       role="radio"
       tabIndex={0}
     >
