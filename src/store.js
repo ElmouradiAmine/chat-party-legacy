@@ -4,14 +4,17 @@ import io from 'socket.io-client';
 
 import usersCountReducer from './features/usersCount/usersCountSlice';
 import userReducer from './features/user/userSlice';
+import chatReducer from './features/chat/chatSlice';
 
 const socket = io('http://localhost:5050');
+
 const socketIoMiddleware = createSocketIoMiddleware(socket, 'server/');
 
 const store = configureStore({
   reducer: {
     usersCount: usersCountReducer,
     user: userReducer,
+    chat: chatReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(socketIoMiddleware),
   devTools: process.env.NODE_ENV !== 'production',

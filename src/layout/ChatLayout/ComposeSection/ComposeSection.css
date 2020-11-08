@@ -1,0 +1,36 @@
+.compose {
+  border-top: var(--border-primary);
+  padding: 0.8rem;
+  display: flex;
+  position: relative;
+}
+
+.compose__input {
+  margin-right: 1.6rem;
+  margin-left: 1.6rem;
+  flex: 1;
+}
+.stranger-typing {
+  font-size: 1.3rem;
+  color: var(--color-font-primary);
+  position: absolute;
+  top: -2.4rem;
+  left: 1.6rem;
+  opacity: 0.7;
+  font-style: italic;
+  animation: inOutText 2s forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes inOutText {
+  0% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}

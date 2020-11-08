@@ -1,0 +1,20 @@
+/* .messagesSection {
+} */
+
+.messagesSection__info {
+  color: var(--color-font-primary);
+  opacity: 0.5;
+  font-style: italic;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.messagesSection__next-btn {
+  margin: 1rem auto;
+}
+
+.messagesSection__spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

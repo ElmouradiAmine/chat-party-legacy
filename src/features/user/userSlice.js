@@ -5,6 +5,10 @@ const initialState = {
   error: '',
   status: 'idle',
   user: null,
+  video: {
+    permission: false,
+    status: 'off',
+  },
 };
 
 const user = createSlice({
@@ -27,12 +31,16 @@ const user = createSlice({
         state.error = 'A network error has occured !';
       }
     },
+    toggleUserCamera: (state) => {
+      state.video.status = state.video.status === 'on' ? 'off' : 'on';
+    },
   },
 });
 
 export const userSelector = (state) => state.user.user;
 export const userStatusSelector = (state) => state.user.status;
 export const userErrorSelector = (state) => state.user.error;
-export const { userLoading, userCheckError } = user.actions;
+export const videoUserStatusSelector = (state) => state.user.video.status;
+export const { userLoading, userCheckError, toggleUserCamera } = user.actions;
 
 export default user.reducer;

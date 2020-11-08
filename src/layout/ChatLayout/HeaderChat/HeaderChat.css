@@ -1,0 +1,11 @@
+.headerChat {
+  border-bottom: var(--border-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerChat__user-details {
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+}
