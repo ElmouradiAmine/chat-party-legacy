@@ -7,6 +7,7 @@ import {
   userCheckError,
   userErrorSelector,
 } from '../../features/user/userSlice';
+import { getCountry } from '../../utils/getCountry';
 
 import './ConnectionForm.css';
 import Input from '../../components/Input/Input';
@@ -46,13 +47,15 @@ const ConnectionForm = ({ className }) => {
     return true;
   };
 
-  const connectUser = () => {
+  const connectUser = async () => {
     dispatch(userLoading());
+    const country = await getCountry();
     dispatch({
       type: 'server/connectUser',
       payload: {
         username,
         gender,
+        country,
       },
     });
     setTimeout(() => {
@@ -64,11 +67,11 @@ const ConnectionForm = ({ className }) => {
     setError(userError);
   }, [userError]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
       if (status !== 'loading' && status !== 'connected') {
-        connectUser();
+        await connectUser();
       }
     }
   };
@@ -108,7 +111,7 @@ const ConnectionForm = ({ className }) => {
       >
         &#9888;
         {' '}
-        { error }
+        {error}
       </p>
     </form>
   );

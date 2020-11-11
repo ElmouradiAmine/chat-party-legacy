@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSocketIoMiddleware from 'redux-socket.io';
 import io from 'socket.io-client';
-
 import usersCountReducer from './features/usersCount/usersCountSlice';
 import userReducer from './features/user/userSlice';
 import chatReducer from './features/chat/chatSlice';
 
+// const url = 'https://chat-party-backend-v4.herokuapp.com/';
+// const local = 'localhost:5050'
 const socket = io('https://chat-party-backend-v4.herokuapp.com/');
 
 const socketIoMiddleware = createSocketIoMiddleware(socket, 'server/');
