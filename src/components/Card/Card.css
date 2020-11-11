@@ -1,0 +1,45 @@
+.card {
+  background-color: var(--color-card-background);
+  border-radius: 3px;
+  flex: 1;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.card__icon {
+  width: 70%;
+  height: auto;
+  fill: var(--color-font-primary);
+  opacity: 0.5;
+  margin-bottom: 3.2rem;
+}
+.card__label {
+  color: var(--color-font-primary);
+  opacity: 0.5;
+  font-size: 1.8rem;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+.card:hover > *,
+.card--selected > * {
+  opacity: 0.9;
+}
+.card:hover.card--blue,
+.card--blue.card--selected {
+  background: var(--color-blue);
+}
+
+.card:hover.card--pink,
+.card--pink.card--selected {
+  background: var(--color-pink);
+}
+.card:active {
+  outline: none;
+}

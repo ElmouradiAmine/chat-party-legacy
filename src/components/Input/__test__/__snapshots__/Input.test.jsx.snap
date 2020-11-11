@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component matches snapshot 1`] = `
+<input
+  className="input className"
+  max="12"
+  maxLength="12"
+  onChange={[MockFunction]}
+  placeholder="placeholder"
+  type="text"
+  value="value"
+/>
+`;

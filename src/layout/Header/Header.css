@@ -1,0 +1,19 @@
+.header {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(0, 1fr) [content-start]minmax(300px, 1024px)
+    [content-end]minmax(0, 1fr) [full-end];
+  column-gap: var(--grid-gutter-column);
+
+  background-color: var(--color-primary);
+  border-bottom: var(--border-primary);
+  height: 6.4rem;
+}
+
+.header__content {
+  position: relative;
+  grid-column: content-start / content-end;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,24 @@
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__image {
+  height: 4.2rem;
+  margin-right: 0.8rem;
+}
+
+.logo__title {
+  font-family: 'Pacifico', cursive;
+  color: var(--color-font-primary);
+  font-size: 2.4rem;
+}
+
+.logo__title--colored {
+  margin-left: 0.8rem;
+  color: #ffbc00;
+}
+
+.logo__version {
+  font-size: 1.3rem;
+}

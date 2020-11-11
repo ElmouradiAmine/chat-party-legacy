@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo component matches snapshot 1`] = `
+<figure
+  className="logo className"
+  data-testid="logo"
+>
+  <img
+    alt="logo chat-pary linux penguin"
+    className="logo__image"
+    src="logo.png"
+  />
+  <h1
+    className="logo__title"
+  >
+    Chat
+    <span
+      className="logo__title--colored"
+    >
+      Party
+    </span>
+    <sub
+      className="logo__version"
+    >
+      v4.0.0
+    </sub>
+  </h1>
+</figure>
+`;

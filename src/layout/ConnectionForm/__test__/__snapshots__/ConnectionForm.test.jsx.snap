@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectionForm component matches snapshot 1`] = `
+<form
+  className="connection-form className"
+  onSubmit={[Function]}
+>
+  <input
+    className="input connection-form__username"
+    onChange={[Function]}
+    placeholder="Username"
+    type="text"
+    value=""
+  />
+  <div
+    className="connection-form__gender-selection"
+  >
+    <div
+      aria-checked={false}
+      className="card  card--blue false "
+      data-testid="card-male"
+      id="card-male"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="radio"
+      tabIndex={0}
+    >
+      <svg
+        className="card__icon"
+        data-testid="icon"
+        fill={null}
+      >
+        gender-male-outline.svg
+      </svg>
+      <p
+        className="card__label"
+      >
+        male
+      </p>
+    </div>
+    <div
+      aria-checked={false}
+      className="card  card--pink false "
+      data-testid="card-female"
+      id="card-female"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="radio"
+      tabIndex={0}
+    >
+      <svg
+        className="card__icon"
+        data-testid="icon"
+        fill={null}
+      >
+        gender-female-outline.svg
+      </svg>
+      <p
+        className="card__label"
+      >
+        female
+      </p>
+    </div>
+  </div>
+  <button
+    aria-label="join"
+    className="button button--green "
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    join
+  </button>
+  <p
+    className="connection-form__error"
+    style={
+      Object {
+        "visibility": "hidden",
+      }
+    }
+  >
+    ⚠
+     
+    
+  </p>
+</form>
+`;
