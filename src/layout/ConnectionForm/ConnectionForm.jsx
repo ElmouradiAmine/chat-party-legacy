@@ -7,7 +7,7 @@ import {
   userCheckError,
   userErrorSelector,
 } from '../../features/user/userSlice';
-import { getCountry } from '../../utils/getCountry';
+import getCountry from '../../utils/getCountry';
 
 import './ConnectionForm.css';
 import Input from '../../components/Input/Input';

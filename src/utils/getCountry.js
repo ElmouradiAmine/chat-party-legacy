@@ -10,4 +10,4 @@ const getCountry = async () => {
   }
 };
 
-module.exports = { getCountry };
+export default getCountry;
