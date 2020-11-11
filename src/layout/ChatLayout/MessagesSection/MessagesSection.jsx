@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './MessagesSection.css';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { useSelector, useDispatch } from 'react-redux';
+import useSound from 'use-sound';
 import BubbleMessage from '../../../components/BubbleMessage/BubbleMessage';
 import Button from '../../../components/Button/Button';
 import {
@@ -12,12 +13,18 @@ import {
   strangerSelector,
 } from '../../../features/chat/chatSlice';
 import Spinner from '../../../components/Spinner/Spinner';
+import ding from '../../../assets/sound/ding.mp3';
 
 function MessagesSection({ className }) {
   const status = useSelector(chatStatusSelector);
   const messages = useSelector(messagesSelector);
   const stranger = useSelector(strangerSelector);
   const dispatch = useDispatch();
+  const [play] = useSound(ding);
+
+  useEffect(() => {
+    play();
+  }, [messages, status]);
 
   const nextChat = () => {
     if (status === 'stopped') {

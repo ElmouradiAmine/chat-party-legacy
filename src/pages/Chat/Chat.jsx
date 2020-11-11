@@ -1,18 +1,16 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/media-has-caption */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Peer from 'peerjs';
 import {
   videoUserStatusSelector,
-  toggleUserCamera,
   userSelector,
+  toggleUserCamera,
 } from '../../features/user/userSlice';
 
-import {
-  strangerSelector,
-  chatStatusSelector,
-} from '../../features/chat/chatSlice';
+import { strangerSelector } from '../../features/chat/chatSlice';
 import './Chat.css';
 import HeaderChat from '../../layout/ChatLayout/HeaderChat/HeaderChat';
 import MessagesSection from '../../layout/ChatLayout/MessagesSection/MessagesSection';
@@ -24,89 +22,69 @@ import VideoOnIcon from '../../components/Icons/VideoOnIcon/VideoOnIcon';
 
 const Chat = ({ className }) => {
   const videoUserStatus = useSelector(videoUserStatusSelector);
-  const chatStatus = useSelector(chatStatusSelector);
+  const dispatch = useDispatch();
   const user = useSelector(userSelector);
   const stranger = useSelector(strangerSelector);
-  const dispatch = useDispatch();
-  const [disabled, setDisabled] = useState(false);
-  const [videoUserStream, setVideoUserStream] = useState(null);
-  const [peer, setPeer] = useState(null);
+  const [peer, setPeer] = useState(new Peer(user.id));
 
-  const streamStrangerCamVideo = (stream) => {
-    const video = document.querySelector('.video-stranger');
-    video.srcObject = stream;
-    video.onloadedmetadata = function () {
-      video.play();
-    };
-  };
+  // function addVideoStream(label, stream) {
+  //   const video = document.querySelector(label);
+  //   if (video) {
+  //     video.srcObject = stream;
+  //     video.addEventListener('loadedmetadata', () => {
+  //       video.play();
+  //     });
+  //   }
+  // }
 
-  // const removeStrangerCamVideo = () => {
-  //   const video = document.querySelector('.video-stranger');
-  //   video.pause();
-  //   video.srcObject.getTracks().forEach((track) => {
-  //     track.stop();
-  //   });
+  // function removeVideoStream(label, stream) {
+  //   const video = document.querySelector(label);
+  // }
+
+  // function removeVideoStream(label) {
+  //   const video = document.querySelector(label);
   //   video.srcObject = null;
-  // };
+  //   video.pause();
+  //   video.remove();
+  // }
 
-  useEffect(() => {
-    const p = new Peer(`chatparty${user.id}`);
+  // useEffect(() => {
+  //   console.log(peer);
+  //   let mediaStream = null;
+  //   if (videoUserStatus === 'on') {
+  //     navigator.mediaDevices
+  //       .getUserMedia({
+  //         video: true,
+  //         audio: false,
+  //       })
+  //       .then((stream) => {
+  //         addVideoStream('.video-user', stream);
+  //         console.log(stranger);
+  //         console.log(stream);
+  //         if (stranger) {
+  //           const call = peer.call(stranger.id, stream);
+  //           console.log(call);
+  //         }
 
-    p.on('call', (call) => {
-      console.log('RECEVIED');
-      call.on('stream', (remoteStream) => {
-        streamStrangerCamVideo(remoteStream);
-      });
-    });
+  //         mediaStream = stream;
+  //       });
+  //   }
 
-    setPeer(p);
+  //   peer.on('call', (call) => {
+  //     alert('received data');
+  //     call.answer(null); // Answer the call with an A/V stream.
+  //     call.on('stream', (remoteStream) => {
+  //       addVideoStream('.video-stranger', remoteStream);
+  //       console.log('passed');
+  //     });
+  //   });
 
-    return () => {
-      peer?.disconnect();
-      peer?.destroy();
-    };
-  }, []);
+  //   return () => {
+  //     if (mediaStream) mediaStream.getTracks().forEach((track) => track.stop());
+  //     peer.disconnect();
+  //   };
+  // }, [videoUserStatus]);
 
-  useEffect(() => {
-    if (
-      videoUserStatus === 'on'
-      && chatStatus === 'matched'
-      && videoUserStream
-    ) {
-      console.log(peer);
-      const call = peer.call(`chatparty${stranger.id}`, videoUserStream);
-      console.log(call);
-    }
-  }, [videoUserStatus, chatStatus, videoUserStream]);
-
-  const streamCamVideo = (callback) => {
-    const constraints = { video: { width: 1280, height: 720 } };
-    navigator.mediaDevices
-      .getUserMedia(constraints)
-      .then((mediaStream) => {
-        const video = document.querySelector('.video-user');
-        setVideoUserStream(mediaStream);
-        video.srcObject = mediaStream;
-        video.onloadedmetadata = function () {
-          video.play();
-          callback();
-        };
-      })
-      .catch((err) => {
-        console.log(`${err.name}: ${err.message}`);
-      }); // always check for errors at the end.
-  };
-
-  const removeCamVideo = (callback) => {
-    const video = document.querySelector('.video-user');
-    video.pause();
-    video.srcObject.getTracks().forEach((track) => {
-      track.stop();
-    });
-    video.srcObject = null;
-    setVideoUserStream(null);
-    callback();
-  };
   return (
     <div className={`chat ${className}`}>
       <div className="chat__video-container chat__video-container--1">
@@ -114,36 +92,23 @@ const Chat = ({ className }) => {
       </div>
 
       <div className="chat__video-container chat__video-container--2">
-        <video className="video-user" autoPlay />
-
+        {videoUserStatus === 'on' ? (
+          <video className="video-user" autoPlay />
+        ) : (
+          <></>
+        )}
         {videoUserStatus === 'off' ? (
           <VideoOnIcon
             className="video-icon"
             onClick={() => {
-              if (!disabled) {
-                setDisabled(true);
-                streamCamVideo(() => {
-                  dispatch(toggleUserCamera());
-                });
-                setTimeout(() => {
-                  setDisabled(false);
-                }, 1000);
-              }
+              dispatch(toggleUserCamera());
             }}
           />
         ) : (
           <VideoOffIcon
             className="video-icon"
             onClick={() => {
-              if (!disabled) {
-                setDisabled(true);
-                removeCamVideo(() => {
-                  dispatch(toggleUserCamera());
-                });
-                setTimeout(() => {
-                  setDisabled(false);
-                }, 1000);
-              }
+              dispatch(toggleUserCamera());
             }}
           />
         )}

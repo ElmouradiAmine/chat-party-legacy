@@ -2,7 +2,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  theme: localStorage.getItem('theme') || 'light',
   stranger: null,
+  strangerIsTyping: false,
   status: 'waiting', // matched and stopped
   messages: [],
 };
@@ -11,6 +13,13 @@ const chatSlice = createSlice({
   initialState,
   name: 'chat',
   reducers: {
+    changeTheme: (state, action) => {
+      state.theme = action.payload;
+      localStorage.setItem('theme', state.theme || 'light');
+    },
+    toggleStrangerTyping: (state, action) => {
+      state.strangerIsTyping = action.payload;
+    },
     addMessage: (state, action) => {
       state.messages.push({
         message: action.payload.message,
@@ -30,6 +39,7 @@ const chatSlice = createSlice({
     },
     stopped: (state) => {
       state.status = 'stopped';
+      state.strangerIsTyping = false;
       // state.stranger = null;
     },
   },
@@ -38,5 +48,7 @@ const chatSlice = createSlice({
 export const strangerSelector = (state) => state.chat.stranger;
 export const chatStatusSelector = (state) => state.chat.status;
 export const messagesSelector = (state) => state.chat.messages;
-// export const { getCount } = chatSlice.actions;
+export const themeSelector = (state) => state.chat.theme;
+export const strangerIsTypingSelector = (state) => state.chat.strangerIsTyping;
+export const { changeTheme } = chatSlice.actions;
 export default chatSlice.reducer;

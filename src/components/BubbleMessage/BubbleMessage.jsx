@@ -10,7 +10,7 @@ const BubbleMessage = ({ isMe, message, createdAt }) => {
     <div className="msg">
       <div className={`bubble ${isMe && 'altfollow'}`}>
         <div className="txt">
-          <span className="timestamp">{time}</span>
+          <span className={`timestamp ${isMe && 'follow'}`}>{time}</span>
           <p className={`message ${isMe && 'follow'}`}>{message}</p>
         </div>
         <div className={`bubble-arrow ${isMe && 'alt'}`} />

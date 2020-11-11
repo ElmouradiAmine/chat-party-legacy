@@ -1,16 +1,23 @@
 .app {
   height: 100vh;
   position: relative;
+  background-repeat: repeat;
 
   display: flex;
   flex-direction: column;
+  transition: all 0.3s;
+}
+
+.app.light {
+  background-image: url(./assets/img/pattern-background_light.png);
+}
+.app.dark {
+  background-image: url(./assets/img/pattern-background_dark.png);
 }
 
 .app::after {
   content: '';
-  background-image: url(./assets/img/pattern-background.png);
-  background-repeat: repeat;
-  opacity: 0.3;
+  background-color: var(--color-background);
   top: 0;
   left: 0;
   bottom: 0;
