@@ -81,6 +81,8 @@ const ConnectionForm = ({ className }) => {
         onChange={handleUsernameChange}
         value={username}
         placeholder="Username"
+        max="12"
+        maxLength="12"
       />
       <div className="connection-form__gender-selection">
         <GenderMaleCard

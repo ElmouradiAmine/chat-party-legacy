@@ -44,11 +44,34 @@
   font-weight: 500;
   padding: 0 15px 0 15px;
   margin: auto;
-  color: var(--color-font-bubble-me);
+  color: var(--color-font-primary);
+  opacity: 0.7;
   display: table;
 }
 
+.msg .bubble .txt .message.follow {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 15px 0 15px;
+  margin: auto;
+  color: var(--color-font-bubble-me);
+  display: table;
+  opacity: 0.9;
+}
+
 .msg .bubble .txt .timestamp {
+  font-size: 11px;
+  margin: auto;
+  padding: 0 15px 0 0;
+  display: table;
+  float: right;
+  position: relative;
+  text-transform: uppercase;
+  color: var(--color-font-primary);
+  opacity: 0.5;
+}
+
+.msg .bubble .txt .timestamp.follow {
   font-size: 11px;
   margin: auto;
   padding: 0 15px 0 0;
