@@ -45,7 +45,7 @@
   display: grid;
   grid-template-columns: [full-start] 8rem [content-start] minmax(0px, 1fr) [content-end]8rem [full-end];
   grid-template-rows:
-    [header-start]6.4rem [header-end message-start] minmax(0px, 1fr)
+    [header-start]6.4rem [header-end message-start] 62vh
     [message-end compose-start]6.4rem [compose-end];
   row-gap: 1.6rem;
   position: relative;
