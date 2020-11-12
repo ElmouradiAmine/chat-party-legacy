@@ -7,7 +7,10 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s;
-
   grid-row: footer-start/footer-end;
   grid-column: full-start/full-end;
+}
+
+.footer__copyright {
+  margin-right: 1rem;
 }

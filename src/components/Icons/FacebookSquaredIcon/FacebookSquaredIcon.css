@@ -1,0 +1,8 @@
+.facebook-icon {
+  fill: var(--color-font-primary);
+}
+
+.facebook-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.5;
+}
