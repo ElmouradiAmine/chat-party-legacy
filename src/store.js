@@ -5,9 +5,10 @@ import Peer from 'peerjs';
 import usersCountReducer from './features/usersCount/usersCountSlice';
 import userReducer from './features/user/userSlice';
 import chatReducer from './features/chat/chatSlice';
-// const url = 'https://chat-party-backend-v4.herokuapp.com/';
-// const local = 'localhost:5050'
-const socket = io('https://chat-party-backend-v4.herokuapp.com/');
+
+const url = 'https://chat-party-backend-v4.herokuapp.com/';
+// const local = 'localhost:5000';
+const socket = io(url);
 
 const socketIoMiddleware = createSocketIoMiddleware(socket, 'server/');
 

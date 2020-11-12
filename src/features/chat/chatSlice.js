@@ -22,14 +22,16 @@ const chatSlice = createSlice({
       state.strangerIsTyping = action.payload;
     },
     addMessage: (state, action) => {
-      const isMe = state.stranger.id !== action.payload.userId;
-      state.messages.push({
-        message: action.payload.message,
-        timestamp: action.payload.timestamp,
-        isMe,
-      });
-      if (!isMe) {
-        state.playSoundTrigger += 1;
+      if (state.status === 'matched') {
+        const isMe = state.stranger.id !== action.payload.userId;
+        state.messages.push({
+          message: action.payload.message,
+          timestamp: action.payload.timestamp,
+          isMe,
+        });
+        if (!isMe) {
+          state.playSoundTrigger += 1;
+        }
       }
     },
     matched: (state, action) => {
