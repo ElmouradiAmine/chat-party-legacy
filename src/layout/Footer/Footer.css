@@ -6,6 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s;
 
-  height: 4.8rem;
+  grid-row: footer-start/footer-end;
+  grid-column: full-start/full-end;
 }

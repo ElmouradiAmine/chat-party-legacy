@@ -7,6 +7,7 @@ const initialState = {
   strangerIsTyping: false,
   status: 'waiting', // matched and stopped
   messages: [],
+  playSoundTrigger: 0,
 };
 
 const chatSlice = createSlice({
@@ -21,11 +22,15 @@ const chatSlice = createSlice({
       state.strangerIsTyping = action.payload;
     },
     addMessage: (state, action) => {
+      const isMe = state.stranger.id !== action.payload.userId;
       state.messages.push({
         message: action.payload.message,
         timestamp: action.payload.timestamp,
-        isMe: state.stranger.id !== action.payload.userId,
+        isMe,
       });
+      if (!isMe) {
+        state.playSoundTrigger += 1;
+      }
     },
     matched: (state, action) => {
       state.messages = [];
@@ -50,5 +55,6 @@ export const chatStatusSelector = (state) => state.chat.status;
 export const messagesSelector = (state) => state.chat.messages;
 export const themeSelector = (state) => state.chat.theme;
 export const strangerIsTypingSelector = (state) => state.chat.strangerIsTyping;
+export const playSoundTriggerSelector = (state) => state.chat.playSoundTrigger;
 export const { changeTheme } = chatSlice.actions;
 export default chatSlice.reducer;

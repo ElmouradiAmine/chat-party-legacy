@@ -11,6 +11,7 @@ import {
   chatStatusSelector,
   messagesSelector,
   strangerSelector,
+  playSoundTriggerSelector,
 } from '../../../features/chat/chatSlice';
 import Spinner from '../../../components/Spinner/Spinner';
 import ding from '../../../assets/sound/ding.mp3';
@@ -19,12 +20,13 @@ function MessagesSection({ className }) {
   const status = useSelector(chatStatusSelector);
   const messages = useSelector(messagesSelector);
   const stranger = useSelector(strangerSelector);
+  const playSoundTrigger = useSelector(playSoundTriggerSelector);
   const dispatch = useDispatch();
   const [play] = useSound(ding);
 
   useEffect(() => {
     play();
-  }, [messages, status]);
+  }, [playSoundTrigger, status]);
 
   const nextChat = () => {
     if (status === 'stopped') {
@@ -39,17 +41,36 @@ function MessagesSection({ className }) {
   }
   return (
     <ScrollToBottom className={`messagesSection ${className}`}>
+      {status !== 'waiting' && (
+        <>
+          <p
+            className="messagesSection__info"
+            style={{
+              marginBottom: '1rem',
+            }}
+          >
+            {stranger?.username}
+            {' '}
+            has joined the chat...
+          </p>
+        </>
+      )}
       {messages.map((message) => (
         <BubbleMessage
           key={message.timestamp}
           isMe={message.isMe}
           message={message.message}
-          createdAt={message.createdAt}
+          createdAt={message.timestamp}
         />
       ))}
       {status === 'stopped' && (
         <>
-          <p className="messagesSection__info">
+          <p
+            className="messagesSection__info"
+            style={{
+              marginTop: '1rem',
+            }}
+          >
             {stranger?.username}
             {' '}
             has left the chat...

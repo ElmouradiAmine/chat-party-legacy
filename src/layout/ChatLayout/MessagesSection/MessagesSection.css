@@ -1,5 +1,7 @@
-/* .messagesSection {
-} */
+.messagesSection {
+  transition: all 0.3s;
+  height: 100%;
+}
 
 .messagesSection__info {
   color: var(--color-font-primary);

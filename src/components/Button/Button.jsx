@@ -15,7 +15,7 @@ function Button({
       onClick={onClick}
       disabled={disabled}
     >
-      {!disabled ? `${label}` : <Spinner /> }
+      {!disabled ? `${label}` : <Spinner color="white" /> }
     </button>
   );
 }

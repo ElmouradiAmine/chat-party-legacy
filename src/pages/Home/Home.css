@@ -2,12 +2,17 @@
   flex: 1;
   display: grid;
   grid-template-columns:
-    [full-start] minmax(0, 1fr) [content-start] minmax(300px, 400px)
+    [full-start] minmax(0, 1fr) [content-start] minmax(29rem, 35rem)
     [content-end] minmax(0, 1fr) [full-end];
+  grid-template-rows: 1fr minmax(0, 40rem) 1fr;
   column-gap: 1.6rem;
+  transition: all 0.3s;
+  grid-column: main-start/main-end;
+  grid-row: main-start/main-end;
 }
 
 .home__connection-form {
   grid-column: content-start/content-end;
   grid-row: 2/3;
+  transition: all 0.3s;
 }

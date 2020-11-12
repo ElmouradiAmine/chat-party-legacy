@@ -87,11 +87,11 @@ const Chat = ({ className }) => {
 
   return (
     <div className={`chat ${className}`}>
-      <div className="chat__video-container chat__video-container--1">
-        <video className="video-stranger" autoPlay />
-      </div>
+      {/* <div className="chat__video-container chat__video-container--1">
+         <video className="video-stranger" autoPlay />
+      </div> */}
 
-      <div className="chat__video-container chat__video-container--2">
+      {/* <div className="chat__video-container chat__video-container--2">
         {videoUserStatus === 'on' ? (
           <video className="video-user" autoPlay />
         ) : (
@@ -112,7 +112,7 @@ const Chat = ({ className }) => {
             }}
           />
         )}
-      </div>
+      </div> */}
       <div className="chat__messages">
         <HeaderChat className="chat__header" />
         {/* Messages section */}

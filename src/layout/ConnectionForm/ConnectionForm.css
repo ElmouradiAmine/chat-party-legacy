@@ -5,10 +5,10 @@
   align-self: center;
   display: flex;
   flex-direction: column;
-  max-height: 400px;
   padding-top: 2.4rem;
   padding-right: 2.4rem;
   padding-bottom: 0;
+  transition: all 0.3s;
   padding-left: 2.4rem;
 }
 .connection-form__username {

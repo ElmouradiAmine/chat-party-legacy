@@ -3,6 +3,7 @@
   padding: 0.8rem;
   display: flex;
   position: relative;
+  transition: all 0.3s;
 }
 
 .compose__input {

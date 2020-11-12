@@ -29,7 +29,9 @@
 }
 .card:hover > *,
 .card--selected > * {
+  fill: white;
   opacity: 0.9;
+  color: white;
 }
 .card:hover.card--blue,
 .card--blue.card--selected {

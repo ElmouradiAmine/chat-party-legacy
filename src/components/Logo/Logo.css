@@ -22,3 +22,9 @@
 .logo__version {
   font-size: 1.3rem;
 }
+
+@media screen and (max-width: 500px) {
+  .logo__title {
+    display: none;
+  }
+}

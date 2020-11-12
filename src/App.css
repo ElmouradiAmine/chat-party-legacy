@@ -1,17 +1,31 @@
-.app {
+/* .app {
   height: 100vh;
   position: relative;
   background-repeat: repeat;
   display: flex;
   flex-direction: column;
   transition: all 0.3s;
+} */
+
+.app {
+  grid-template-columns:
+    [full-start] minmax(0, 1fr) [main-start] minmax(0px, 1024px)
+    [main-end] minmax(0, 1fr) [full-end];
+  grid-template-rows:
+    [header-start] 6.4rem [header-end main-start] minmax(0px, 1fr)
+    [main-end footer-start] 3.2rem[footer-end];
+  height: 100vh;
+  position: relative;
+  display: grid;
 }
 
 .app.light {
   background-image: url(./assets/img/pattern-background_light.png);
+  transition: all 0.3s;
 }
 .app.dark {
   background-image: url(./assets/img/pattern-background_dark.png);
+  transition: all 0.3s;
 }
 
 .app::after {
@@ -23,4 +37,5 @@
   right: 0;
   position: absolute;
   z-index: -1;
+  transition: all 0.3s;
 }

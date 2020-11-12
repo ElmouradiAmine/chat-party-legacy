@@ -1,19 +1,25 @@
 .chat {
-  padding: 1.6rem;
   max-width: 1280px;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
   flex: 1;
   animation: chatApparition 0.5s ease;
   display: grid;
-  grid-template-columns: [video-start] 0.4fr [video-end messages-start] 0.6fr [messages-end];
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns:
+    [full-start] minmax(0, 1fr) [messages-start] minmax(0px, 1024px)
+    [messages-end] minmax(0, 1fr) [full-end];
+  grid-template-rows: minmax(200px, 1fr);
   row-gap: 1.6rem;
   column-gap: 1.6rem;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  transition: all 0.3s;
+  grid-row: main-start/main-end;
+  grid-column: main-start/main-end;
 }
 
-.chat__video-container {
+/* .chat__video-container {
   background-color: var(--color-primary);
   border: var(--border-primary);
   border-radius: 3px;
@@ -35,17 +41,17 @@
   height: 100%;
   object-fit: cover;
   margin-top: auto;
-}
+} */
 
 .chat__messages {
-  grid-row: 1/-1;
+  grid-column: messages-start / messages-end;
   background-color: var(--color-primary);
   border: var(--border-primary);
   border-radius: 3px;
   display: grid;
   grid-template-columns: [full-start] 8rem [content-start] minmax(0px, 1fr) [content-end]8rem [full-end];
   grid-template-rows:
-    [header-start]6.4rem [header-end message-start] 62vh
+    [header-start]6.4rem [header-end message-start] minmax(0px, 1fr)
     [message-end compose-start]6.4rem [compose-end];
   row-gap: 1.6rem;
   position: relative;
