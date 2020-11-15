@@ -131,3 +131,14 @@
     color: red;
   }
 }
+.message-link:link,
+.message-link:visited {
+  color: var(--color-font-primary);
+  opacity: 1;
+}
+
+.message-link.follow:link,
+.message-link.follow:visited {
+  color: var(--color-font-bubble-me);
+  opacity: 1;
+}

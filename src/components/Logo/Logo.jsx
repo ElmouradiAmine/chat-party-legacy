@@ -14,7 +14,7 @@ const Logo = ({ className }) => (
     <h1 className="logo__title">
       Chat
       <span className="logo__title--colored">Party</span>
-      <sub className="logo__version">v4.0.0</sub>
+      <sub className="logo__version">v4.0.1</sub>
     </h1>
   </figure>
 );
