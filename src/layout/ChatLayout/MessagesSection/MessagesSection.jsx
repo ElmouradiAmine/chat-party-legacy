@@ -11,7 +11,7 @@ import {
   chatStatusSelector,
   messagesSelector,
   strangerSelector,
-  // playSoundTriggerSelector,
+  playSoundTriggerSelector,
 } from '../../../features/chat/chatSlice';
 import Spinner from '../../../components/Spinner/Spinner';
 import ding from '../../../assets/sound/ding.mp3';
@@ -20,13 +20,15 @@ function MessagesSection({ className }) {
   const status = useSelector(chatStatusSelector);
   const messages = useSelector(messagesSelector);
   const stranger = useSelector(strangerSelector);
-  // const playSoundTrigger = useSelector(playSoundTriggerSelector);
+  const playSoundTrigger = useSelector(playSoundTriggerSelector);
   const dispatch = useDispatch();
   const [play] = useSound(ding);
 
   useEffect(() => {
-    play();
-  }, [status]);
+    if (document.hidden) {
+      play();
+    }
+  }, [playSoundTrigger, status]);
 
   const nextChat = () => {
     if (status === 'stopped') {

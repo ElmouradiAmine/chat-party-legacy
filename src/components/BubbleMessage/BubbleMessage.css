@@ -49,6 +49,10 @@
   color: var(--color-font-primary);
   opacity: 0.7;
   display: table;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
 }
 
 .msg .bubble .txt .message.follow {
@@ -59,6 +63,9 @@
   color: var(--color-font-bubble-me);
   display: table;
   opacity: 0.9;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .msg .bubble .txt .timestamp {

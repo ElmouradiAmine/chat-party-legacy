@@ -51,7 +51,7 @@ function ComposeSection({ className }) {
         type: 'server/sendMessage',
         payload: {
           userId: user.id,
-          room: stranger.room,
+          room: user.room,
           message,
         },
       });

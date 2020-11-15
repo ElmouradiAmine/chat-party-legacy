@@ -15,6 +15,9 @@ const user = createSlice({
   initialState,
   name: 'user',
   reducers: {
+    roomChanged: (state, action) => {
+      if (state.user) state.user.room = action.payload.room;
+    },
     userLoading: (state) => {
       state.status = 'loading';
       state.error = '';
