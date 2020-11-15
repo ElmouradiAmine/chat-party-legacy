@@ -6,9 +6,9 @@ import usersCountReducer from './features/usersCount/usersCountSlice';
 import userReducer from './features/user/userSlice';
 import chatReducer from './features/chat/chatSlice';
 
-// const url = 'https://chat-party-backend-v4.herokuapp.com/';
-const local = 'localhost:5000';
-const socket = io(local);
+const url = 'https://chat-party-backend-v4.herokuapp.com/';
+// const local = 'localhost:5000';
+const socket = io(url);
 
 const socketIoMiddleware = createSocketIoMiddleware(socket, 'server/');
 
