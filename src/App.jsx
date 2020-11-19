@@ -23,6 +23,7 @@ function App() {
       host: 'chat-party-peer-server.herokuapp.com',
       port: 443,
       debug: 2,
+      config: { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] },
     });
 
     setPeer(p);
