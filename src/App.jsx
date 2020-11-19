@@ -20,10 +20,10 @@ function App() {
   useEffect(() => {
     const p = new Peer(null, {
       secure: true,
-      host: 'chat-party-peer-server.herokuapp.com',
+      host: '9000-dc7ffc50-b1af-4c5a-99c3-c623c9301efb.ws-eu01.gitpod.io/',
       port: 443,
-      debug: 2,
-      config: { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] },
+      debug: 3,
+
     });
 
     setPeer(p);
