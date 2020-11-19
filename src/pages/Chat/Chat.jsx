@@ -102,6 +102,8 @@ const Chat = ({ className }) => {
               },
             });
           }
+        }).catch((error) => {
+
         });
     } else {
       removeVideoUserStream();
@@ -199,14 +201,22 @@ const Chat = ({ className }) => {
         )}
       </div>
       <div className="chat__video-container chat__video-container--2">
-        {videoUserStatus ? (
-          <video className="video-user" autoPlay />
-        ) : (
-          <p className="text-info">
-            <AlertIcon className="alert-icon" />
-            Video currently disabled !
-          </p>
-        )}
+        <video
+          className="video-user"
+          autoPlay
+          style={{
+            display: videoUserStatus ? 'block' : 'none',
+          }}
+        />
+        <p
+          className="text-info"
+          style={{
+            display: !videoUserStatus ? 'flex' : 'none',
+          }}
+        >
+          <AlertIcon className="alert-icon" />
+          Video currently disabled !
+        </p>
         {!videoUserStatus ? (
           <VideoOnIcon
             className="video-icon"
