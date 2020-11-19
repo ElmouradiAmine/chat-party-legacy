@@ -69,6 +69,13 @@ function ComposeSection({ className }) {
       dispatch({
         type: 'server/stopChat',
       });
+
+      dispatch({
+        type: 'server/toggleStrangerVideo',
+        payload: {
+          value: false,
+        },
+      });
     }
   };
 

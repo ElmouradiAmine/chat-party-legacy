@@ -7,7 +7,7 @@ const initialState = {
   user: null,
   video: {
     permission: false,
-    status: 'off',
+    status: false,
   },
 };
 
@@ -35,7 +35,7 @@ const user = createSlice({
       }
     },
     toggleUserCamera: (state) => {
-      state.video.status = state.video.status === 'on' ? 'off' : 'on';
+      state.video.status = !state.video.status;
     },
   },
 });

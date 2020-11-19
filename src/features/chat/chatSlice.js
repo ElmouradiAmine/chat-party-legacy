@@ -5,21 +5,34 @@ const initialState = {
   theme: localStorage.getItem('theme') || 'light',
   stranger: null,
   strangerIsTyping: false,
+  strangerVideoStatus: false,
   status: 'waiting', // matched and stopped
   messages: [],
   playSoundTrigger: 0,
+  peer: null,
 };
 
 const chatSlice = createSlice({
   initialState,
   name: 'chat',
   reducers: {
+    peerCreated: (state, action) => {
+      state.peer = action.payload.peer;
+    },
     changeTheme: (state, action) => {
       state.theme = action.payload;
       localStorage.setItem('theme', state.theme || 'light');
     },
     toggleStrangerTyping: (state, action) => {
       state.strangerIsTyping = action.payload;
+    },
+    toggleStrangerVideo: (state, action) => {
+      if (state.stranger) {
+        console.log(action);
+        state.strangerVideoStatus = action.payload.value;
+      } else {
+        state.strangerVideoStatus = false;
+      }
     },
     addMessage: (state, action) => {
       if (state.status === 'matched') {
@@ -58,5 +71,6 @@ export const messagesSelector = (state) => state.chat.messages;
 export const themeSelector = (state) => state.chat.theme;
 export const strangerIsTypingSelector = (state) => state.chat.strangerIsTyping;
 export const playSoundTriggerSelector = (state) => state.chat.playSoundTrigger;
-export const { changeTheme } = chatSlice.actions;
+export const strangerVideoStatusSelector = (state) => state.chat.strangerVideoStatus;
+export const { changeTheme, peerCreated } = chatSlice.actions;
 export default chatSlice.reducer;

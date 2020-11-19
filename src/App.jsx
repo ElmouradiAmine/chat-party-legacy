@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import Peer from 'peerjs';
 
 import { userStatusSelector } from './features/user/userSlice';
 import { themeSelector } from './features/chat/chatSlice';
-
+import PeerContext from './context/peerContext';
 import './App.css';
 
 import Footer from './layout/Footer/Footer';
@@ -14,13 +15,30 @@ import Chat from './pages/Chat/Chat';
 function App() {
   const connected = useSelector(userStatusSelector) === 'connected';
   const theme = useSelector(themeSelector);
+  const [peer, setPeer] = useState();
 
+  useEffect(() => {
+    const p = new Peer(null, {
+      secure: true,
+      host: 'chat-party-peer-server.herokuapp.com',
+      port: 443,
+      debug: 2,
+    });
+
+    setPeer(p);
+  }, []);
   return (
-    <div className={`app ${theme}`}>
-      <Header />
-      {!connected ? <Home /> : <Chat />}
-      <Footer />
-    </div>
+    <PeerContext.Provider
+      value={{
+        peer,
+      }}
+    >
+      <div className={`app ${theme}`}>
+        <Header />
+        {!connected ? <Home /> : <Chat />}
+        <Footer />
+      </div>
+    </PeerContext.Provider>
   );
 }
 
