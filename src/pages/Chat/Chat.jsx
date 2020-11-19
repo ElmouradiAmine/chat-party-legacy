@@ -93,19 +93,27 @@ const Chat = ({ className }) => {
           if (stranger) {
             peer.call(stranger.peerId, stream);
           }
+          dispatch(toggleUserCamera());
+          if (chatStatus === 'matched') {
+            dispatch({
+              type: 'server/toggleStrangerVideo',
+              payload: {
+                value: !videoUserStatus,
+              },
+            });
+          }
         });
     } else {
       removeVideoUserStream();
-    }
-
-    dispatch(toggleUserCamera());
-    if (chatStatus === 'matched') {
-      dispatch({
-        type: 'server/toggleStrangerVideo',
-        payload: {
-          value: !videoUserStatus,
-        },
-      });
+      dispatch(toggleUserCamera());
+      if (chatStatus === 'matched') {
+        dispatch({
+          type: 'server/toggleStrangerVideo',
+          payload: {
+            value: !videoUserStatus,
+          },
+        });
+      }
     }
   }
 
