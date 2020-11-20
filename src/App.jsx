@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/accessible-emoji */
+/* eslint-disable jsx-a11y/aria-role */
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Peer from 'peerjs';
@@ -11,11 +15,14 @@ import Footer from './layout/Footer/Footer';
 import Header from './layout/Header/Header';
 import Home from './pages/Home/Home';
 import Chat from './pages/Chat/Chat';
+import Button from './components/Button/Button';
+import ButtonCircleGroup from './components/ButtonCircleGroup/ButtonCircleGroup';
 
 function App() {
   const connected = useSelector(userStatusSelector) === 'connected';
   const theme = useSelector(themeSelector);
   const [peer, setPeer] = useState();
+  const [showPopup, setShowPopup] = useState(true);
 
   useEffect(() => {
     const p = new Peer(null, {
@@ -24,7 +31,8 @@ function App() {
       port: 443,
       debug: 3,
       options: {
-        iceServers: [{ url: 'stun:stun01.sipphone.com' },
+        iceServers: [
+          { url: 'stun:stun01.sipphone.com' },
           { url: 'stun:stun.ekiga.net' },
           { url: 'stun:stun.fwdnet.net' },
           { url: 'stun:stun.ideasip.com' },
@@ -57,10 +65,10 @@ function App() {
             url: 'turn:192.158.29.39:3478?transport=tcp',
             credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
             username: '28224511:1379330808',
-          }],
+          },
+        ],
         sdpSemantics: 'unified-plan',
       },
-
     });
 
     setPeer(p);
@@ -71,9 +79,85 @@ function App() {
         peer,
       }}
     >
-      <div className={`app ${theme}`}>
+      <div
+        className={`app ${theme}`}
+        onClick={() => {
+          setShowPopup(false);
+        }}
+      >
         <Header />
         {!connected ? <Home /> : <Chat />}
+        <div
+          className="popup-background"
+          style={{
+            display: showPopup ? 'block' : 'none',
+          }}
+        />
+        <div
+          className="popup"
+          style={{
+            display: showPopup ? 'flex' : 'none',
+            flexDirection: 'column',
+          }}
+        >
+          <ButtonCircleGroup />
+          <p>
+            <strong
+              style={{
+                textDecoration: 'underline',
+              }}
+            >
+              Patch notes v4.1.0
+              {' '}
+            </strong>
+            :
+          </p>
+          <p>
+            <span role="img">👉</span>
+            {' '}
+            Video Chat.
+          </p>
+          <p>
+            <span role="img">👉</span>
+            {' '}
+            Emojis support.
+          </p>
+          <p>
+            <span role="img">👉</span>
+            {' '}
+            Interactive links.
+          </p>
+          <p>
+            <span role="img">👉</span>
+            {' '}
+            Performance enhancement.
+          </p>
+
+          <p style={{ marginBottom: '1.2rem' }}>
+            To get the latest
+            {' '}
+            <strong> news </strong>
+            {' '}
+            follow us on
+            {' '}
+            <a
+              href="https://www.facebook.com/yourchatparty"
+              target="_blank"
+              rel="noreferrer"
+              className="facebook-link"
+            >
+              Facebook.
+            </a>
+          </p>
+
+          <Button
+            label="ok"
+            onClick={() => {
+              setShowPopup(false);
+            }}
+            color="green"
+          />
+        </div>
         <Footer />
       </div>
     </PeerContext.Provider>
