@@ -4,11 +4,11 @@
   display: flex;
   position: relative;
   transition: all 0.3s;
+  justify-content: space-between;
 }
 
 .compose__input {
-  margin-right: 1.6rem;
-  margin-left: 1.6rem;
+  margin-left: 1rem;
   flex: 1;
 }
 .stranger-typing {
@@ -21,6 +21,41 @@
   font-style: italic;
   animation: inOutText 2s forwards;
   animation-iteration-count: infinite;
+}
+
+.emoji-img {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  transition: all 0.2s;
+}
+
+.emoji-img:hover {
+  transform: scale(1.2);
+}
+
+.emoji-img:active {
+  transform: scale(1.2);
+  opacity: 0.5;
+}
+
+.emoji-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+}
+@media screen and (max-width: 500px) {
+  .emoji-img-container {
+    display: none;
+  }
+
+  .compose__input {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    flex: 1;
+  }
 }
 
 @keyframes inOutText {

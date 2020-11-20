@@ -9,16 +9,29 @@
 
 .app {
   grid-template-columns:
-    [full-start] minmax(0, 1fr) [main-start] minmax(0px, 1024px)
-    [main-end] minmax(0, 1fr) [full-end];
+    [full-start] minmax(0, 0) [main-start] 1fr
+    [main-end] minmax(0, 0) [full-end];
   grid-template-rows:
     [header-start] 6.4rem [header-end main-start] minmax(0px, 1fr)
     [main-end footer-start] 3.2rem[footer-end];
-  height: 100vh;
   position: relative;
+  height: 100vh;
   display: grid;
 }
-
+@media screen and (max-width: 500px) {
+  .app {
+    grid-template-columns:
+      [full-start] minmax(0, 0) [main-start] 1fr
+      [main-end] minmax(0, 0) [full-end];
+    grid-template-rows:
+      [header-start] 6.4rem [header-end main-start] minmax(0px, 1fr)
+      [main-end footer-start] 3.2rem[footer-end];
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+    display: grid;
+  }
+}
 .app.light {
   background-image: url(./assets/img/pattern-background_light.png);
   transition: all 0.3s;

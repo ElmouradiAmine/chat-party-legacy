@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -14,13 +14,14 @@ import Input from '../../components/Input/Input';
 import GenderMaleCard from '../../components/Card/GenderMaleCard/GenderMaleCard';
 import GenderFemaleCard from '../../components/Card/GenderFemaleCard/GenderFemaleCard';
 import Button from '../../components/Button/Button';
+import PeerContext from '../../context/peerContext';
 
 const ConnectionForm = ({ className }) => {
   const [username, setUsername] = useState('');
   const [gender, setGender] = useState(undefined);
   const [error, setError] = useState('');
   const userError = useSelector(userErrorSelector);
-
+  const { peer } = useContext(PeerContext);
   const status = useSelector(userStatusSelector);
 
   const dispatch = useDispatch();
@@ -56,6 +57,7 @@ const ConnectionForm = ({ className }) => {
         username,
         gender,
         country,
+        peerId: peer.id,
       },
     });
     setTimeout(() => {
