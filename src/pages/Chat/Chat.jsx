@@ -46,9 +46,7 @@ const Chat = ({ className }) => {
     if (video) {
       video.muted = true;
       video.srcObject = stream;
-      video.onloadedmetadata = () => {
-        video.play();
-      };
+      video.play();
     }
   }
 
@@ -74,10 +72,11 @@ const Chat = ({ className }) => {
     const video = document.querySelector('.video-stranger');
     if (video) {
       video.srcObject = stream;
+      video.play();
 
-      video.onloadedmetadata = () => {
-        video.play();
-      };
+      // video.onloadedmetadata = () => {
+      //   video.play();
+      // };
     }
   }
   function toggleVideoUser() {
@@ -192,7 +191,7 @@ const Chat = ({ className }) => {
     <div className={`chat ${className}`}>
       <div className="chat__video-container chat__video-container--1">
         {strangerVideoStatus ? (
-          <video className="video-stranger" autoPlay width="1280" />
+          <video className="video-stranger" autoPlay width="1280" playsInline />
         ) : (
           <p className="text-info">
             <AlertIcon className="alert-icon" />
