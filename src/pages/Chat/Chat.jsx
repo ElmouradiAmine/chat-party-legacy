@@ -103,7 +103,7 @@ const Chat = ({ className }) => {
             });
           }
         }).catch((error) => {
-
+          alert(error);
         });
     } else {
       removeVideoUserStream();

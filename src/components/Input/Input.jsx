@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Input.css';
 
 const Input = ({
-  type, className, placeholder, onChange, value, max, maxLength,
+  type, className, placeholder, onChange, value, max, maxLength, onKeyDown,
 }) => (
   <input
     type={type}
@@ -14,6 +14,11 @@ const Input = ({
     value={value}
     max={max}
     maxLength={maxLength}
+    onKeyDown={(event) => {
+      if (event.key === 'Enter') {
+        onKeyDown();
+      }
+    }}
   />
 );
 
@@ -25,6 +30,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   max: PropTypes.string,
   maxLength: PropTypes.string,
+  onKeyDown: PropTypes.func,
 
 };
 
@@ -36,5 +42,6 @@ Input.defaultProps = {
   onChange: null,
   max: undefined,
   maxLength: undefined,
+  onKeyDown: undefined,
 };
 export default Input;

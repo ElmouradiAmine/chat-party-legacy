@@ -1,25 +1,36 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import { checkText } from 'smile2emoji';
+import { Picker } from 'emoji-mart';
 import {
   chatStatusSelector,
   strangerSelector,
   strangerIsTypingSelector,
+  themeSelector,
 } from '../../../features/chat/chatSlice';
+
 import { userSelector } from '../../../features/user/userSlice';
 
 import './ComposeSection.css';
 import Button from '../../../components/Button/Button';
 import Input from '../../../components/Input/Input';
+import 'emoji-mart/css/emoji-mart.css';
+import emojiImage from '../../../assets/svgs/emoji.png';
 
 function ComposeSection({ className }) {
   const [message, setMessage] = useState('');
   const chatStatus = useSelector(chatStatusSelector);
   const user = useSelector(userSelector);
+  const theme = useSelector(themeSelector);
   const stranger = useSelector(strangerSelector);
   const strangerIsTyping = useSelector(strangerIsTypingSelector);
   const dispatch = useDispatch();
   const [isTyping, setIsTyping] = useState(false);
+  const [emojiPickerIsVisible, setEmojiPickerIsVisible] = useState(false);
 
   const validate = () => {
     if (message.trim() !== '') {
@@ -45,14 +56,14 @@ function ComposeSection({ className }) {
     }
   };
   const sendMessage = (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     if (validate() && chatStatus === 'matched') {
       dispatch({
         type: 'server/sendMessage',
         payload: {
           userId: user.id,
           room: user.room,
-          message,
+          message: checkText(message),
         },
       });
       setMessage('');
@@ -87,6 +98,10 @@ function ComposeSection({ className }) {
     }
   };
 
+  const addEmoji = (emoji) => {
+    setMessage(message + emoji);
+  };
+
   return (
     <form className={`compose ${className}`} onSubmit={sendMessage}>
       <p
@@ -117,12 +132,45 @@ function ComposeSection({ className }) {
           }}
         />
       )}
+      {emojiPickerIsVisible && (
+      <Picker
+        onClick={(emoji, event) => {
+          addEmoji(emoji.native);
+        }}
+        theme={theme}
+        set="google"
+        color="#ffbc00"
+        perLine="8"
+        showSkinTones={false}
+        showPreview={false}
+        style={{
+          position: 'absolute',
+          right: '1.2rem',
+          bottom: '6.4rem',
+          backgroundColor: theme === 'dark' ? '#2c2f33' : 'white',
+        }}
+      />
+      )}
+
       <Input
         className="compose__input"
         placeholder="Your message"
         value={message}
         onChange={handleChange}
+        onKeyDown={sendMessage}
       />
+      <div
+        role="button"
+        className="emoji-img-container"
+        onClick={() => {
+          if (emojiPickerIsVisible) { setEmojiPickerIsVisible(false); } else {
+            setEmojiPickerIsVisible(true);
+          }
+        }}
+      >
+        <img src={emojiImage} alt="" className="emoji-img" />
+
+      </div>
       <Button
         type="submit"
         className="compose__btn-send"
