@@ -84,7 +84,7 @@ const Chat = ({ className }) => {
     if (!videoUserStatus) {
       navigator.mediaDevices
         .getUserMedia({
-          video: true,
+          video: { width: 1280 },
           audio: true,
         })
         .then((stream) => {
