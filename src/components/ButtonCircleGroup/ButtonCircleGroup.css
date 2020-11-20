@@ -1,0 +1,10 @@
+.buttonCircleGroup {
+  display: flex;
+  position: absolute;
+  left: 0.8rem;
+  top: 0.8rem;
+}
+
+.buttonCircleGroup > *:not(:last-child) {
+  margin-right: 8px;
+}

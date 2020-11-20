@@ -52,3 +52,32 @@
   z-index: -1;
   transition: all 0.3s;
 }
+
+.popup {
+  color: var(--color-font-primary);
+  background-color: var(--color-primary);
+  border: var(--border-primary);
+  border-radius: 3px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem;
+  padding-top: 3.2rem;
+  transition: all 0.3s;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popup-background {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  opacity: 0.9;
+}
+
+.facebook-link:visited {
+  color: var(--color-font-primary);
+}

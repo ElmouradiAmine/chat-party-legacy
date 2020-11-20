@@ -1,0 +1,22 @@
+.circle {
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: all 0.2s;
+}
+
+.circle--red {
+  background-color: var(--color-red);
+}
+
+.circle--green {
+  background-color: var(--color-green);
+}
+
+.circle--yellow {
+  background-color: var(--color-yellow);
+}
+
+.circle:hover {
+  filter: brightness(80%);
+}

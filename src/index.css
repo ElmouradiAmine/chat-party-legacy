@@ -90,3 +90,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a:active,
+a:visited {
+  color: color(--color-font-primary);
+}
