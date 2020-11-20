@@ -192,7 +192,7 @@ const Chat = ({ className }) => {
     <div className={`chat ${className}`}>
       <div className="chat__video-container chat__video-container--1">
         {strangerVideoStatus ? (
-          <video className="video-stranger" autoPlay />
+          <video className="video-stranger" autoPlay width="1280" />
         ) : (
           <p className="text-info">
             <AlertIcon className="alert-icon" />
