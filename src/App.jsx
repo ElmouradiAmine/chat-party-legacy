@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/accessible-emoji */
@@ -102,6 +103,8 @@ function App() {
         >
           <ButtonCircleGroup />
           <p>
+            🆕
+            {' '}
             <strong
               style={{
                 textDecoration: 'underline',
@@ -148,6 +151,55 @@ function App() {
             >
               Facebook.
             </a>
+          </p>
+
+          <p>
+            📢
+            {' '}
+            <strong
+              style={{
+                textDecoration: 'underline',
+              }}
+            >
+              Announcement
+              {' '}
+            </strong>
+            <p
+              style={{
+                marginBottom: '1.2rem',
+              }}
+            >
+              <p
+                style={{
+                  marginBottom: '1.2rem',
+                }}
+              >
+                We are sadly announcing that we won't be able to support this
+                project any further due to a lack of funding. Thank you all for
+                the amazing support you gave us so far and for your brilliant
+                feedback. The servers will stay running till our providers shut
+                them down. Our journey won't stop here, we will surely bring to
+                life other ideas. Goodbye, my friends.
+              </p>
+
+              <p>
+                <q
+                  style={{
+                    marginRight: '1rem',
+                  }}
+                >
+                  <em
+                    style={{
+                      fontWeight: 200,
+                    }}
+                  >
+                    When Hearts Are High The Time Will Fly, So Whistle While You
+                    Work.
+                  </em>
+                </q>
+                Snow White
+              </p>
+            </p>
           </p>
 
           <Button
